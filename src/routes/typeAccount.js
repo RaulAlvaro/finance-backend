@@ -1,5 +1,6 @@
 import express from 'express';
 import typeAccountController from '../controllers/typeAccount.js';
+import userValidation from '../middlewares/userValidation';
 
 const router = express.Router();
 
@@ -7,10 +8,10 @@ router.get('/', typeAccountController.findAll);
 
 router.get('/:id', typeAccountController.findOne);
 
-router.post('/', typeAccountController.create);
+router.post('/', userValidation.validate, typeAccountController.create);
 
-router.put('/:id', typeAccountController.update);
+router.put('/:id', userValidation.validate, typeAccountController.update);
 
-router.delete('/:id', typeAccountController.remove);
+router.delete('/:id', userValidation.validate, typeAccountController.remove);
 
 module.exports = router;

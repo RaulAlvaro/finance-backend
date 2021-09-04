@@ -27,7 +27,7 @@ export default {
         name,
         color
       );
-      res.status(200).json({ data: typeAccountCreated });
+      res.status(201).json({ data: typeAccountCreated });
     } catch (error) {
       next(error);
     }
@@ -40,7 +40,7 @@ export default {
         id,
         req.body
       );
-      res.status(200).json({ data: typeAccountUpdated });
+      res.status(201).json({ data: typeAccountUpdated });
     } catch (error) {
       next(error);
     }

@@ -28,7 +28,7 @@ export default {
         amount,
         typeAccount
       );
-      res.status(200).json({ data: accountCreated });
+      res.status(201).json({ data: accountCreated });
     } catch (error) {
       next(error);
     }
@@ -38,7 +38,7 @@ export default {
     const { id } = req.params;
     try {
       const accountUpdated = await accountService.updateAccount(id, req.body);
-      res.status(200).json({ data: accountUpdated });
+      res.status(201).json({ data: accountUpdated });
     } catch (error) {
       next(error);
     }

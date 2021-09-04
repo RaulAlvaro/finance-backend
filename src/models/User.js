@@ -8,7 +8,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  username: {
+  email: {
     type: String,
   },
   password: {
@@ -17,7 +17,7 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-UserSchema.pre('save', (next) => {
+UserSchema.pre('save', function (next) {
   this.password = bcrypt.hashSync(this.password, saltRounds);
   next();
 });

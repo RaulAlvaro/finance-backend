@@ -40,6 +40,14 @@ services:
     networks:
       - finance-network
 
+  logs:
+    container_name: logs
+    image: amir20/dozzle:latest
+    ports:
+      - '9999:8080'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
 networks:
   finance-network:
     driver: bridge
