@@ -41,7 +41,7 @@ services:
       - finance-network
 
   logs:
-    container_name: logs
+    container_name: logs-containers
     image: amir20/dozzle:latest
     ports:
       - '9999:8080'
