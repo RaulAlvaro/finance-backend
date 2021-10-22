@@ -8,9 +8,9 @@ router.get('/', accountController.findAll);
 
 router.get('/:id', accountController.findOne);
 
-router.post('/', userValidation.validate, accountController.create);
+router.post('/', accountController.create);
 
-router.put('/:id', userValidation.validate, accountController.update);
+router.put('/:id', accountController.update);
 
 router.delete('/:id', userValidation.validate, accountController.remove);
 

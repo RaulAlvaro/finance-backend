@@ -8,10 +8,10 @@ router.get('/', typeAccountController.findAll);
 
 router.get('/:id', typeAccountController.findOne);
 
-router.post('/', userValidation.validate, typeAccountController.create);
+router.post('/', typeAccountController.create);
 
-router.put('/:id', userValidation.validate, typeAccountController.update);
+router.put('/:id', typeAccountController.update);
 
-router.delete('/:id', userValidation.validate, typeAccountController.remove);
+router.delete('/:id', typeAccountController.remove);
 
 module.exports = router;
