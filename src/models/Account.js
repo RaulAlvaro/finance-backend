@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import typeAccount from './TypeAccount';
+import TypeAccount from './TypeAccount';
 
 const AccountSchema = new mongoose.Schema({
   name: {
@@ -10,7 +10,7 @@ const AccountSchema = new mongoose.Schema({
     type: String,
   },
 
-  typeAccount: {
+  typeAccountId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'TypeAccount',
   },
