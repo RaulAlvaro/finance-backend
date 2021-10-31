@@ -1,6 +1,6 @@
-import AccountHistory from '../models/AccountHistory';
+const AccountHistory = require('../models/AccountHistory');
 
-export default {
+class AccountHistoryService {
   async findAccountsHistory() {
     try {
       return await AccountHistory.find().populate('account');
@@ -9,7 +9,7 @@ export default {
         'findAccountsHistory in AccountHistory service failed - ' + error
       );
     }
-  },
+  }
 
   async findAccountHistory(id) {
     try {
@@ -19,7 +19,7 @@ export default {
         'findAccountHistory in AccountHistory service failed - ' + error
       );
     }
-  },
+  }
 
   async createAccountHistory(account, initAmount, endAmount, cutOff) {
     try {
@@ -34,7 +34,7 @@ export default {
         'createAccountHistory in AccountHistory service failed - ' + error
       );
     }
-  },
+  }
 
   async updateAccountHistory(id, data) {
     try {
@@ -49,7 +49,7 @@ export default {
         'updateAccountHistory in AccountHistory service failed - ' + error
       );
     }
-  },
+  }
 
   async deleteAccountHistory(id) {
     try {
@@ -63,5 +63,7 @@ export default {
         'deleteAccountHistory in AccountHistory service failed - ' + error
       );
     }
-  },
-};
+  }
+}
+
+module.exports = AccountHistoryService;

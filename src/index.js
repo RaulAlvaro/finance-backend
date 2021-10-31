@@ -1,8 +1,9 @@
-import express from 'express';
-import connectDb from './connection';
-import morgan from 'morgan';
-import routes from './routes';
-import dotenv from 'dotenv';
+const express = require('express');
+const connectDb = require('./connection');
+const morgan = require('morgan');
+const routes = require('./routes');
+const dotenv = require('dotenv');
+const cors = require('cors');
 
 dotenv.config();
 
@@ -10,7 +11,7 @@ const app = express();
 
 app.use(morgan('common'));
 app.use(express.json());
-
+app.use(cors());
 app.use('/v1', routes);
 
 app.listen(process.env.PORT, async () => {

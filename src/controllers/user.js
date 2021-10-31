@@ -1,6 +1,7 @@
-import userService from '../services/user';
+const User = require('../services/user');
+const userService = new User();
 
-export default {
+class UserController {
   async create(req, res, next) {
     try {
       const { name, email, password } = req.body;
@@ -9,7 +10,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
+  }
 
   async authenticate(req, res, next) {
     try {
@@ -22,5 +23,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
-};
+  }
+}
+
+module.exports = UserController;

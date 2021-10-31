@@ -1,6 +1,7 @@
-import express from 'express';
-import accountHistoryController from '../controllers/accountHistory';
+const express = require('express');
+const AccountHistory = require('../controllers/accountHistory');
 
+const accountHistoryController = new AccountHistory();
 const router = express.Router();
 
 router.get('/', accountHistoryController.findAll);

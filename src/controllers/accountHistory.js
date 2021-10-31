@@ -1,6 +1,7 @@
-import accountHistoryService from '../services/accountHistory';
+const AccountHistory = require('../services/accountHistory');
+const accountHistoryService = new AccountHistory();
 
-export default {
+class AccountHistoryController {
   async findAll(req, res, next) {
     try {
       const accountsHistory = await accountHistoryService.findAccountsHistory();
@@ -8,7 +9,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
+  }
 
   async findOne(req, res, next) {
     try {
@@ -18,7 +19,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
+  }
 
   async create(req, res, next) {
     try {
@@ -34,7 +35,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
+  }
 
   async update(req, res, next) {
     const { id } = req.params;
@@ -45,7 +46,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
+  }
 
   async remove(req, res, next) {
     const { id } = req.params;
@@ -56,5 +57,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
-};
+  }
+}
+
+module.exports = AccountHistoryController;

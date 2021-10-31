@@ -1,8 +1,11 @@
-import sinon from 'sinon';
-import { expect } from 'chai';
-import faker from 'faker';
-import TypeAccountModel from '../../src/models/TypeAccount';
-import TypeAccountService from '../../src/services/typeAccount';
+const chai = require('chai');
+const sinon = require('sinon');
+const expect = chai.expect;
+const faker = require('faker');
+
+const TypeAccountModel = require('../../src/models/TypeAccount');
+const TypeAccount = require('../../src/services/typeAccount');
+const TypeAccountService = new TypeAccount();
 
 describe('typeAccountService', () => {
   describe('create', () => {

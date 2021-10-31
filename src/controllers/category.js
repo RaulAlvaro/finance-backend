@@ -1,6 +1,7 @@
-import categoryService from '../services/category';
+const Category = require('../services/category');
+const categoryService = new Category();
 
-export default {
+class CategoryController {
   async findAll(req, res, next) {
     try {
       const categories = await categoryService.findCategories();
@@ -8,7 +9,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
+  }
 
   async findOne(req, res, next) {
     try {
@@ -18,7 +19,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
+  }
 
   async create(req, res, next) {
     try {
@@ -28,7 +29,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
+  }
 
   async update(req, res, next) {
     const { id } = req.params;
@@ -41,7 +42,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
+  }
 
   async remove(req, res, next) {
     const { id } = req.params;
@@ -51,5 +52,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
-};
+  }
+}
+
+module.exports = CategoryController;

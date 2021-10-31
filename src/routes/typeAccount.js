@@ -1,7 +1,7 @@
-import express from 'express';
-import typeAccountController from '../controllers/typeAccount.js';
-import userValidation from '../middlewares/userValidation';
+const express = require('express');
+const typeAccount = require('../controllers/typeAccount.js');
 
+const typeAccountController = new typeAccount();
 const router = express.Router();
 
 router.get('/', typeAccountController.findAll);
