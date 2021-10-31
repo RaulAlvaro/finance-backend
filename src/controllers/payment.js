@@ -1,6 +1,7 @@
-import paymentService from '../services/payment';
+const Payment = require('../services/payment');
+const paymentService = new Payment();
 
-export default {
+class PaymentController {
   async findAll(req, res, next) {
     try {
       const payments = await paymentService.findPayments();
@@ -8,7 +9,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
+  }
 
   async findOne(req, res, next) {
     try {
@@ -18,7 +19,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
+  }
 
   async create(req, res, next) {
     try {
@@ -34,7 +35,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
+  }
 
   async update(req, res, next) {
     const { id } = req.params;
@@ -44,7 +45,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
+  }
 
   async remove(req, res, next) {
     const { id } = req.params;
@@ -54,5 +55,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
-};
+  }
+}
+
+module.exports = PaymentController;

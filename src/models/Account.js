@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import TypeAccount from './TypeAccount';
+const mongoose = require('mongoose');
+const TypeAccount = require('./TypeAccount');
 
 const AccountSchema = new mongoose.Schema({
   name: {

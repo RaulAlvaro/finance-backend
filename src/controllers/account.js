@@ -1,6 +1,6 @@
-import accountService from '../services/account';
-
-export default {
+const Account = require('../services/account');
+const accountService = new Account();
+class accountController {
   async findAll(req, res, next) {
     try {
       const accounts = await accountService.findAccounts();
@@ -8,7 +8,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
+  }
 
   async findOne(req, res, next) {
     try {
@@ -18,7 +18,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
+  }
 
   async create(req, res, next) {
     try {
@@ -32,7 +32,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
+  }
 
   async update(req, res, next) {
     const { id } = req.params;
@@ -42,7 +42,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
+  }
 
   async remove(req, res, next) {
     const { id } = req.params;
@@ -52,5 +52,7 @@ export default {
     } catch (error) {
       next(error);
     }
-  },
-};
+  }
+}
+
+module.exports = accountController;

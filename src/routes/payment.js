@@ -1,6 +1,7 @@
-import express from 'express';
-import paymentController from '../controllers/payment';
+const express = require('express');
+const Payment = require('../controllers/payment');
 
+const paymentController = new Payment();
 const router = express.Router();
 
 router.get('/', paymentController.findAll);

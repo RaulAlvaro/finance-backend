@@ -1,16 +1,15 @@
-import express from 'express';
+const express = require('express');
 
-import user from './user';
-import typeAccount from './typeAccount';
-import account from './account';
-import category from './category';
-import accountHistory from './accountHistory';
-import payment from './payment';
+const user = require('./user');
+const typeAccount = require('./typeAccount');
+const account = require('./account');
+const category = require('./category');
+const accountHistory = require('./accountHistory');
+const payment = require('./payment');
 
 const router = express.Router();
 
 router.use('/user', user);
-
 router.use('/typeAccount', typeAccount);
 router.use('/account', account);
 router.use('/category', category);

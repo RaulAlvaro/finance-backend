@@ -1,13 +1,13 @@
-import Payment from '../models/Payment';
+const Payment = require('../models/Payment');
 
-export default {
+class PaymentService {
   async findPayments() {
     try {
       return await Payment.find().populate(['account', 'category']);
     } catch (error) {
       throw new Error('findPayments in Payment service failed - ' + error);
     }
-  },
+  }
 
   async findPayment(id) {
     try {
@@ -15,7 +15,7 @@ export default {
     } catch (error) {
       throw new Error('findPayment in Payment service failed - ' + error);
     }
-  },
+  }
 
   async createPayment(description, amount, date, account, category) {
     try {
@@ -29,7 +29,7 @@ export default {
     } catch (error) {
       throw new Error('createPayment in Payment service failed - ' + error);
     }
-  },
+  }
 
   async updatePayment(id, data) {
     try {
@@ -39,7 +39,7 @@ export default {
     } catch (error) {
       throw new Error('updatePayment in Payment service failed - ' + error);
     }
-  },
+  }
 
   async deletePayment(id) {
     try {
@@ -51,5 +51,7 @@ export default {
     } catch (error) {
       throw new Error('deletePayment in Payment service failed - ' + error);
     }
-  },
-};
+  }
+}
+
+module.exports = PaymentService;

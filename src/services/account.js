@@ -1,13 +1,13 @@
-import Account from '../models/Account';
+const Account = require('../models/Account');
 
-export default {
+class accountService {
   async findAccounts() {
     try {
       return await Account.find().populate('typeAccount').exec();
     } catch (error) {
       throw new Error('findAccounts in Account service failed - ' + error);
     }
-  },
+  }
 
   async findAccount(id) {
     try {
@@ -15,7 +15,7 @@ export default {
     } catch (error) {
       throw new Error('findAccount in Account service failed - ' + error);
     }
-  },
+  }
 
   async createAccount(name, amount, typeAccount) {
     try {
@@ -23,7 +23,7 @@ export default {
     } catch (error) {
       throw new Error('createAccount in Account service failed - ' + error);
     }
-  },
+  }
 
   async updateAccount(id, data) {
     try {
@@ -33,7 +33,7 @@ export default {
     } catch (error) {
       throw new Error('updateAccount in Account service failed - ' + error);
     }
-  },
+  }
 
   async deleteAccount(id) {
     try {
@@ -45,5 +45,7 @@ export default {
     } catch (error) {
       throw new Error('deleteAccount in Account service failed - ' + error);
     }
-  },
-};
+  }
+}
+
+module.exports = accountService;

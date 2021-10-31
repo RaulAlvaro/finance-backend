@@ -1,7 +1,8 @@
-import express from 'express';
-import accountController from '../controllers/account';
-import userValidation from '../middlewares/userValidation';
+const express = require('express');
+const Account = require('../controllers/account');
+// const userValidation = require('../middlewares/userValidation');
 
+const accountController = new Account();
 const router = express.Router();
 
 router.get('/', accountController.findAll);
@@ -12,6 +13,8 @@ router.post('/', accountController.create);
 
 router.put('/:id', accountController.update);
 
-router.delete('/:id', userValidation.validate, accountController.remove);
+router.delete('/:id', accountController.remove);
+
+// router.delete('/:id', userValidation(), accountController.remove);
 
 module.exports = router;

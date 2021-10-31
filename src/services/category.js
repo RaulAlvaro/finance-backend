@@ -1,13 +1,13 @@
-import Category from '../models/Category';
+const Category = require('../models/Category');
 
-export default {
+class CategoryService {
   async findCategories() {
     try {
       return await Category.find();
     } catch (error) {
       throw new Error('findCategories in Category service failed - ' + error);
     }
-  },
+  }
 
   async findCategory(id) {
     try {
@@ -15,7 +15,7 @@ export default {
     } catch (error) {
       throw new Error('findCategory in Category service failed - ' + error);
     }
-  },
+  }
 
   async createCategory(name, color) {
     try {
@@ -23,7 +23,7 @@ export default {
     } catch (error) {
       throw new Error('createCategory in Category service failed - ' + error);
     }
-  },
+  }
 
   async updateCategory(id, data) {
     try {
@@ -33,7 +33,7 @@ export default {
     } catch (error) {
       throw new Error('updateCategory in Category service failed - ' + error);
     }
-  },
+  }
 
   async deleteCategory(id) {
     try {
@@ -45,5 +45,7 @@ export default {
     } catch (error) {
       throw new Error('deleteCategory in Category service failed - ' + error);
     }
-  },
-};
+  }
+}
+
+module.exports = CategoryService;

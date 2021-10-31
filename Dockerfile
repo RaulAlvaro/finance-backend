@@ -8,4 +8,4 @@ COPY . .
  
 EXPOSE 3000
 
-CMD ["npx", "nodemon", "src/index.js", "--exec", "babel-node" ]
+CMD ["nodemon", "src/index.js"]

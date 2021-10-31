@@ -1,6 +1,6 @@
-import TypeAccount from '../models/TypeAccount';
+const TypeAccount = require('../models/TypeAccount');
 
-export default {
+class typeAccountService {
   async findTypeAccounts() {
     try {
       return await TypeAccount.find();
@@ -9,7 +9,7 @@ export default {
         'findTypeAccounts in TypeAccount service failed - ' + error
       );
     }
-  },
+  }
 
   async findTypeAccount(id) {
     try {
@@ -19,7 +19,7 @@ export default {
         'findTypeAccount in TypeAccount service failed - ' + error
       );
     }
-  },
+  }
 
   async createTypeAccount(name, color) {
     try {
@@ -29,7 +29,7 @@ export default {
         'createTypeAccount in TypeAccount service failed - ' + error
       );
     }
-  },
+  }
 
   async updateTypeAccount(id, data) {
     try {
@@ -41,7 +41,7 @@ export default {
         'updateTypeAccount in TypeAccount service failed - ' + error
       );
     }
-  },
+  }
 
   async deleteTypeAccount(id) {
     try {
@@ -55,5 +55,7 @@ export default {
         'deleteTypeAccount in TypeAccount service failed - ' + error
       );
     }
-  },
-};
+  }
+}
+
+module.exports = typeAccountService;
