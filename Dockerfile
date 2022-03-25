@@ -1,11 +1,13 @@
 FROM node:14.17.0
  
-WORKDIR /app
+WORKDIR /usr/src/app
  
-RUN npm install
- 
-COPY . .
- 
-EXPOSE 3000
+COPY package.json /usr/src/app
 
-CMD ["nodemon", "src/index.js"]
+RUN npm install
+
+COPY . /usr/src/app
+ 
+CMD ["npm", "run", "dev"]
+
+EXPOSE 3000
